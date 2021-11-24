@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Products"] = "Index";
+    ViewData["Title"] = "Products";
+}
+
+<div>
+    <h2>Products</h2>
+    <div class="row">
+        <a class="btn btn-primary" asp-action="Create"> Create </a>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Policy</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var product in Model)
+
+                {
+                    <tr>
+                        <td>
+                            @product.Policy
+                        </td>
+                        <td>
+                            @product.Type
+                        </td>
+                        <td>
+                            @product.Price
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@product.ID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@product.ID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@product.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

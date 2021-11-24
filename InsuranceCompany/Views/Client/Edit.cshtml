@@ -1,17 +1,18 @@
 ﻿@model InsuranceCompany.Models.Clients
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Create</h1>
+<h1>Edit</h1>
 
 <h4>Clients</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
             <div class="form-group">
                 <label asp-for="FIRST_NAME" class="control-label"></label>
                 <input asp-for="FIRST_NAME" class="form-control" />
@@ -39,12 +40,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="PHONE" class="control-label"></label>
-                <input asp-for="PHONE" class="form-control" />
+                <input asp-for="PHONE" class="form-control"  />
                 <span asp-validation-for="PHONE" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="EMAIL" class="control-label"></label>
-                <input asp-for="EMAIL" class="form-control" />
+                <input asp-for="EMAIL" class="form-control" type="email"/>
                 <span asp-validation-for="EMAIL" class="text-danger"></span>
             </div>
             <div class="form-group">

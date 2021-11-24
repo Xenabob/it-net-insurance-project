@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Clients"] = "Index";
+    ViewData["Title"] = "Clients";
+}
+
+<div>
+    <h2>Clients</h2>
+    <div class="row">
+        <a class="btn btn-primary" asp-action="Create"> Create </a>
+    </div>
+
+    <div class="row">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Birth
+                    </th>
+                    <th>
+                        Adress
+                    </th>
+                    <th>
+                        Passport
+                    </th>
+                    <th>
+                        Phone
+                    </th>
+                    <th>
+                        E-Mail
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var client in Model)
+                {
+                    <tr>
+                        <td>
+                            @client.FIRST_NAME
+                        </td>
+                        <td>
+                            @client.LAST_NAME
+                        </td>
+                        <td>
+                            @client.Birth
+                        </td>
+                        <td>
+                            @client.Adress
+                        </td>
+                        <td>
+                            @client.PASSPORT
+                        </td>
+                        <td>
+                            @client.PHONE
+                        </td>
+                        <td>
+                            @client.EMAIL
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@client.ID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@client.ID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@client.ID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

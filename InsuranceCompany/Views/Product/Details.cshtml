@@ -1,0 +1,43 @@
+﻿@model InsuranceCompany.Models.Products
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Products</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.Policy)
+        </dt>
+        <dd class="col-sm-2">
+            @Html.DisplayFor(model => model.Policy)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd class="col-sm-2">
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-2">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class="col-sm-10">
+            @Html.DisplayNameFor(model => model.VALIDITY_PERIOD)
+        </dt>
+        <dd class="col-sm-2">
+            @Html.DisplayFor(model => model.VALIDITY_PERIOD)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

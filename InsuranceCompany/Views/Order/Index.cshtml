@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Orders"] = "Index";
+    ViewData["Title"] = "Orders";
+}
+
+<div>
+    <h2>Orders</h2>
+    <div class="row">
+        <a class="btn btn-primary" asp-action="Create"> Create </a>
+    </div>
+
+    <div class="row">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Product</th>
+                    <th>Client</th>
+                    <th>Validity Period</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model)
+
+                {
+
+                    <tr>
+                        <td>
+                            @order.PRODUCT_ID
+                        </td>
+
+                        <td>
+                            @order.CLIENT_ID
+                        </td>
+
+                        <td>
+                            @order.VALIDITY_FROM – @order.VALIDITY_TO
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@order.ID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@order.ID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@order.ID">Delete</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+    
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+
+</div>

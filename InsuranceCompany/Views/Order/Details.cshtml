@@ -1,0 +1,26 @@
+﻿@model InsuranceCompany.Models.Orders
+@{
+
+    ViewData["Title"] = "Details";
+}
+<h1>Details</h1>
+<div>
+    <h2>Order</h2>
+    <hr/>
+    <dl calss="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dt class="row">
+            @Html.DisplayNameFor(model=> model.PRODUCT_ID)
+        </dt>
+        <dt class="row">
+            @Html.DisplayNameFor(model=>model.CLIENT_ID)
+        </dt>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+ 

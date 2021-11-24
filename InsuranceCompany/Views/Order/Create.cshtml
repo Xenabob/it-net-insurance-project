@@ -1,0 +1,64 @@
+﻿
+@*@model InsuranceCompany.ViewModels.OrdersCreateViewModel*@
+@model InsuranceCompany.Models.Orders
+
+@{
+    ViewData["Title"] = "Create";
+
+}
+
+<h1> CREATE </h1>
+<h2>ORDER</h2>
+<hr />
+<div class=" row">
+    <div>
+
+      
+    </div>
+    <div calss="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PRODUCT_ID" class="control-label"></label>
+                @*<input asp-for="PRODUCT_ID" class="form-control" />*@
+                <select asp-for="PRODUCT_ID" asp-items="@((List<SelectListItem>) ViewData["Products"])">
+                    <option value="">Pick one</option>
+                </select>
+                <span asp-validation-for="PRODUCT_ID" class="text-danger"></span>
+
+
+            </div>
+            <div class=" form-group">
+                <label asp-for="CLIENT_ID" class="CONTROL-LABEL"></label>
+                @*<input asp-for="CLIENT_ID" class="form-control" />*@
+            <select asp-for="CLIENT_ID" asp-items="@((List<SelectListItem>)ViewData["Clients"])">
+                <option value="">Pick one</option>
+            </select>
+                <span asp-validation-for="CLIENT_ID" class="text-danger"></span>
+            </div>
+            <div class=" form-group">
+                <label asp-for="VALIDITY_FROM" class="CONTROL-LABEL"></label>
+                <input asp-for="VALIDITY_FROM" class="form-control" type="date" />
+
+                <span asp-validation-for="VALIDITY_FROM" class="text-danger"></span>
+            </div>
+            <div class=" form-group">
+                <label asp-for="VALIDITY_TO" class="CONTROL-LABEL"></label>
+                <input asp-for="VALIDITY_TO" class="form-control" type="date" />
+                <span asp-validation-for="VALIDITY_TO" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
